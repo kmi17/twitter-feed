@@ -1,11 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Twitter Crawler</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <router-link class="nav-link" to="/" title="Home tab">
+          Home
+        </router-link>
+      </li>
+    </ul>
+  </div>
+</nav>
     <router-view/>
   </div>
 </template>
 
 <script>
+require('bootstrap')
 export default {
   name: 'App'
 }
@@ -18,6 +33,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
