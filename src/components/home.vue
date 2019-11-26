@@ -37,11 +37,30 @@
    <input type="text" id="rss_url" name="rss_url" class="form-control" placeholder="RSS Feeds URL" value="" />
  </div>
 </div>
-<input type="button" class="btn btn-primary homeBtn" name="btnSubmit" value="Start Collection" onClick="ajaxRequest();"/>
+<input type="button" class="btn btn-primary homeBtn" name="btnSubmit" @click="postCollection" value="Start Collection"/>
 </div>
 </div>
   </div>
 </template>
+<script>
+import axios from 'axios'
+
+export default {
+  data: () => ({}),
+  methods: {
+    postCollection () {
+      const URL = 'http://localhost:8099/consumer/initiate'
+      const DATA = JSON.stringify({'consumer_key': 'Y87MWneNyN18ny32UZQQIg',
+        'consumer_secret': '03v1r5GNA5gyfxJMeJIcoJn7PGgCIuXMImP2mMZN5g',
+        'token': '326146455-5p0UCnpy7yKSVpp6ibBlVtb3UnjIUBSdRxUgHOkX',
+        'token_secret': 'aVJ4xKpWycEk3acf1bGDuygPEzFPh8RPXmsd6fMSU',
+        'twitter_keywords': [{'keywords_list': ['Trump']}]})
+      axios.post(URL, DATA)
+    }
+  }
+
+}
+</script>
 <style scoped>
 .homeTitle{
    margin-top: 25px;
